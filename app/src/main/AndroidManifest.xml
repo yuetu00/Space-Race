@@ -37,7 +37,7 @@
         <activity android:name=".YogaPlanet">
             <!-- other activity attributes -->
         </activity>
-        <activity android:name=".PacePlanet">
+        <activity android:name=".MainPlanetPage">
             <!-- other activity attributes -->
         </activity>
 

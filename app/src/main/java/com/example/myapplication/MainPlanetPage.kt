@@ -8,14 +8,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -25,8 +28,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
-class MainPage : ComponentActivity() {
+class MainPlanetPage : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -40,27 +46,31 @@ class MainPage : ComponentActivity() {
                     )
                 )
 
-                // Set the gradient background directly on the Box
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
                         .background(brush = gradientBrush)
-                        .padding(150.dp),
 
-                    ) {
-                    // Text composable in the top-middle of the screen
-                    Image(
-                        painter = painterResource(id = R.drawable.logo),
-                        contentDescription = null,
-                        modifier = Modifier.size(500.dp).scale(3f),
                     )
-                }
-            }
+                {
+                    ImageButtonYoga(
+                        modifier = Modifier
+                            .size(100.dp)
+                            .offset(x = 60.dp, y = 50.dp)
+                    )
+
+            }}
         }
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@MainPage, MainPlanetPage::class.java)
-            startActivity(intent)
-            finish()
-        }, 3000)
+
+    }
+
+    @Composable
+    fun ImageButtonYoga(modifier: Modifier = Modifier) {
+        // Replace the placeholder with your image resource
+        Image(
+            painter = painterResource(id = R.drawable.yogaplanet),
+            contentDescription = null,
+            modifier = modifier
+        )
     }
 }
