@@ -76,7 +76,13 @@ class MainPlanetPage : ComponentActivity() {
             }
         }
 
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this@MainPlanetPage, YogaPlanet::class.java)
+            startActivity(intent)
+            finish()
+        }, 3000)
     }
+
 
     @Composable
     fun ImageButtonYoga(modifier: Modifier = Modifier) {
