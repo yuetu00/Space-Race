@@ -49,7 +49,7 @@ class MainPage : ComponentActivity() {
                     Image(
                         painter = painterResource(id = R.drawable.logo),
                         contentDescription = null,
-                        modifier = Modifier.size(500.dp).scale(2.5f),
+                        modifier = Modifier.size(500.dp).scale(3f),
                     )
                 }
             }

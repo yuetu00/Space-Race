@@ -26,6 +26,9 @@
         <activity android:name=".MainPage">
             <!-- other activity attributes -->
         </activity>
+        <activity android:name=".YogaPlanet">
+            <!-- other activity attributes -->
+        </activity>
     </application>
 
 </manifest>

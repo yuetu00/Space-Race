@@ -63,7 +63,7 @@ class LoadingPage : ComponentActivity() {
         }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@LoadingPage, MainPage::class.java)
+            val intent = Intent(this@LoadingPage, YogaPlanet::class.java)
             startActivity(intent)
             finish()
         }, 1000)
