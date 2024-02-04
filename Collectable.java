@@ -6,48 +6,58 @@ public class Collectable{
     //To identify exact collectable
     int ID = 0; 
 
-public createCollectable(int planet, int category){
+public createCollectable(int planet, int color){
     //Initialize Creatures with species type and planet (int codes)
-        //Category 1 - animals
-        //Category 2 - objects
+        //color #s 1-3
     this.planet = planet;   
 
     switch(planet){
 
         //Walking
         case 1:
-            //Animal
-            if (category == 1){
+            if (color == 1){
                 this.name = "creature1_P1";
                 ID = 1;
             }
-            //Object
-            else{
+            if (color == 2){
                 this.name = "creature2_P1";
                 ID = 2;
+            }
+            //Object
+            else{
+                this.name = "creature3_P1";
+                ID = 3;
             }
             break;
 
         //Yoga
         case 2:
-            if (category == 1){
+            if (color == 1){
                 this.name = "creature1_P2";
                 ID = 3;
             }
-            else{
+            if (color == 2){
                 this.name = "creature2_P2";
                 ID = 4;
+            }
+            else{
+                this.name = "creature3_P2";
+                ID = 5;
             }
             break;
 
         //Gym
         case 3:
-            if (category == 1){
+            if (color == 1){
                 this.name = "creature1_P3";
                 ID = 5;
             }
-            else{
+            if (color == 2){
                 this.name = "creature2_P3";
+                ID = 1;
+            }
+            else{
+                this.name = "creature3_P3";
                 ID = 6;
             }
             break;
