@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,7 +61,19 @@ class MainPlanetPage : ComponentActivity() {
                             .offset(x = 60.dp, y = 50.dp)
                     )
 
-            }}
+            }
+                Box(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.mainplanetsplit),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(950.dp)
+                            .paddingFromBaseline(bottom =0.dp), // Adjust the top padding for a lower position
+                    )
+                }
+            }
         }
 
     }

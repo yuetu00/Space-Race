@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
@@ -30,6 +31,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -64,35 +66,45 @@ class YogaPlanet : ComponentActivity(){
                     // IconButton and Icon in a Column
 
                     // Set the gradient background directly on the Box
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(brush = gradientBrush)
-                            .padding(vertical = 175.dp)
-
-                    )
+                // Set the gradient background directly on the Box
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(brush = gradientBrush)
+                )
 
                     {
+                        ImageButtonBack(
+                            modifier = Modifier
+                                .size(40.dp)
+                                .offset(x = 5.dp, y =10.dp)
+                        )
+
 
                         Text(
-                            text = formattedTime,
+                            text = " " + formattedTime,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(top = 2.dp, start = 16.dp, end = 16.dp),
+//                            .padding(top = 2.dp, start = 16.dp, end = 16.dp)                            .paddingFromBaseline(top =  400.dp) // Adjust the top padding for the row
+                                .paddingFromBaseline(top =  200.dp) // Adjust the top padding for the row
+                            ,
                             color = Color(android.graphics.Color.parseColor("#FFDFED")),
                             fontSize = 70.sp,
                         )
 
+
                         Image(
                             painter = painterResource(id = R.drawable.yogaplanetanimal),
                             contentDescription = null,
-                            modifier = Modifier.size(500.dp).scale(0.75f),
+                            modifier = Modifier.size(500.dp).scale(0.75f)
+                                .paddingFromBaseline(top =  400.dp) // Adjust the top padding for the row
+                            ,
                         )
 
                         Row(
                             modifier = Modifier
-                                .paddingFromBaseline(top = 400.dp) // Adjust the top padding for the row
-                                .padding(horizontal = 15.dp, vertical = 20.dp)
+                                .paddingFromBaseline(top =  500.dp) // Adjust the top padding for the row
+                                .padding(horizontal = 15.dp ,vertical = 100.dp)
                                 .fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
@@ -218,22 +230,27 @@ class YogaPlanet : ComponentActivity(){
                     )
                 )
 
-                // Set the gradient background directly on the Box
+                    // Set the gradient background directly on the Box
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
                         .background(brush = gradientBrush)
-                        .padding(vertical = 175.dp)
-
                 )
 
                 {
+                    ImageButtonBack(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .offset(x = 5.dp, y =10.dp)
+                    )
 
                     Text(
-                        text = " " + formattedTime,
+                        text = "  " + formattedTime,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 2.dp, start = 16.dp, end = 16.dp),
+//                            .padding(top = 2.dp, start = 16.dp, end = 16.dp)                            .paddingFromBaseline(top =  400.dp) // Adjust the top padding for the row
+                            .paddingFromBaseline(top =  200.dp) // Adjust the top padding for the row
+                        ,
                         color = Color(android.graphics.Color.parseColor("#FFDFED")),
                         fontSize = 70.sp,
                     )
@@ -241,13 +258,15 @@ class YogaPlanet : ComponentActivity(){
                     Image(
                         painter = painterResource(id = R.drawable.yogaplanetanimal),
                         contentDescription = null,
-                        modifier = Modifier.size(500.dp).scale(0.75f),
+                        modifier = Modifier.size(500.dp).scale(0.75f)
+                            .paddingFromBaseline(top =  400.dp) // Adjust the top padding for the row
+                        ,
                     )
 
                     Row(
                         modifier = Modifier
-                            .paddingFromBaseline(top =  400.dp) // Adjust the top padding for the row
-                            .padding(horizontal = 15.dp ,vertical = 20.dp)
+                            .paddingFromBaseline(top =  500.dp) // Adjust the top padding for the row
+                            .padding(horizontal = 15.dp ,vertical = 100.dp)
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     // Adjust the overall vertical padding for the row
@@ -306,5 +325,14 @@ class YogaPlanet : ComponentActivity(){
                 }
             }
         }
+    }
+    @Composable
+    fun ImageButtonBack(modifier: Modifier = Modifier) {
+        // Replace the placeholder with your image resource
+        Image(
+            painter = painterResource(id = R.drawable.backarrow),
+            contentDescription = null,
+            modifier = modifier
+        )
     }
 }

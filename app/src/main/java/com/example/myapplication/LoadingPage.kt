@@ -66,7 +66,7 @@ class LoadingPage : ComponentActivity() {
             val intent = Intent(this@LoadingPage, MainPage::class.java)
             startActivity(intent)
             finish()
-        }, 5000)
+        }, 1000)
 
     }
 }
