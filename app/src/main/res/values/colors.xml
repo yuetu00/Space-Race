@@ -7,6 +7,9 @@
     <color name = "sunRiseLight"> #59A2C2 </color>
     <color name = "sunRiseDark"> #FFDEFE </color>
 
+    <color name = "midDayDark"> #FFA4A4 </color>
+    <color name = "midDayLight"> #FFEECE </color>
+
 
 
 

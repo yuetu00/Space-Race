@@ -66,7 +66,7 @@ class LoadingPage : ComponentActivity() {
             val intent = Intent(this@LoadingPage, YogaPlanet::class.java)
             startActivity(intent)
             finish()
-        }, 1000)
+        }, 5000)
 
     }
 }

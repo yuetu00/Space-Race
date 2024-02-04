@@ -1,16 +1,15 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Handler
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,6 +17,8 @@ import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
@@ -26,10 +27,12 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -46,6 +49,7 @@ class YogaPlanet : ComponentActivity(){
     private var remainingTimeMillis: Long by mutableStateOf(0L)
     private var formattedTime: String by mutableStateOf("  00:00:00")
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -57,103 +61,106 @@ class YogaPlanet : ComponentActivity(){
                     )
                 )
 
-                // Set the gradient background directly on the Box
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(brush = gradientBrush)
-                        .padding(vertical = 175.dp)
+                    // IconButton and Icon in a Column
 
-                    )
-
-                {
-
-                    Text(
-                        text = formattedTime,
+                    // Set the gradient background directly on the Box
+                    Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 2.dp, start = 16.dp, end = 16.dp),
-                        color = Color(android.graphics.Color.parseColor("#FFDFED")),
-                        fontSize = 70.sp,
+                            .fillMaxSize()
+                            .background(brush = gradientBrush)
+                            .padding(vertical = 175.dp)
+
                     )
 
-                    Image(
-                        painter = painterResource(id = R.drawable.yogaplanetanimal),
-                        contentDescription = null,
-                        modifier = Modifier.size(500.dp).scale(0.75f),
-                    )
+                    {
 
-                    Row(
-                        modifier = Modifier
-                            .paddingFromBaseline(top = 400.dp) // Adjust the top padding for the row
-                            .padding(horizontal = 15.dp, vertical = 20.dp)
-                            .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Button(
-                            onClick = { adjustTimer(-1) },
+                        Text(
+                            text = formattedTime,
                             modifier = Modifier
-                                .padding(7.dp)
-                                .wrapContentWidth()  // Wrap the width around the content
-                                .wrapContentHeight(),
-                            colors = ButtonDefaults.buttonColors(
-                                Color(
-                                    android.graphics.Color.parseColor(
-                                        "#FFFCF5"
+                                .fillMaxWidth()
+                                .padding(top = 2.dp, start = 16.dp, end = 16.dp),
+                            color = Color(android.graphics.Color.parseColor("#FFDFED")),
+                            fontSize = 70.sp,
+                        )
+
+                        Image(
+                            painter = painterResource(id = R.drawable.yogaplanetanimal),
+                            contentDescription = null,
+                            modifier = Modifier.size(500.dp).scale(0.75f),
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .paddingFromBaseline(top = 400.dp) // Adjust the top padding for the row
+                                .padding(horizontal = 15.dp, vertical = 20.dp)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Button(
+                                onClick = { adjustTimer(-1) },
+                                modifier = Modifier
+                                    .padding(7.dp)
+                                    .wrapContentWidth()  // Wrap the width around the content
+                                    .wrapContentHeight(),
+                                colors = ButtonDefaults.buttonColors(
+                                    Color(
+                                        android.graphics.Color.parseColor(
+                                            "#FFFCF5"
+                                        )
                                     )
+                                ) // Replace with your hex color
+                                // Change the color here
+                            ) {
+                                Text(
+                                    text = "-",
+                                    color = Color(android.graphics.Color.parseColor("#77AED4")) // Change the text color here
                                 )
-                            ) // Replace with your hex color
-                            // Change the color here
-                        ) {
-                            Text(
-                                text = "-",
-                                color = Color(android.graphics.Color.parseColor("#77AED4")) // Change the text color here
-                            )
-                        }
-                        Button(
-                            onClick = { startTimer() },
-                            modifier = Modifier
-                                .padding(7.dp)
-                                .wrapContentWidth()  // Wrap the width around the content
-                                .wrapContentHeight()   // Set the desired height
-                        ) {
-                            Text("start")
-                        }
-                        Button(
-                            onClick = { adjustTimer(1) },
-                            modifier = Modifier
-                                .padding(7.dp)
-                                .wrapContentWidth()  // Wrap the width around the content
-                                .wrapContentHeight(),
-                            colors = ButtonDefaults.buttonColors(
-                                Color(
-                                    android.graphics.Color.parseColor(
-                                        "#FFFCF5"
+                            }
+                            Button(
+                                onClick = { startTimer() },
+                                modifier = Modifier
+                                    .padding(7.dp)
+                                    .wrapContentWidth()  // Wrap the width around the content
+                                    .wrapContentHeight()   // Set the desired height
+                            ) {
+                                Text("start")
+                            }
+                            Button(
+                                onClick = { adjustTimer(1) },
+                                modifier = Modifier
+                                    .padding(7.dp)
+                                    .wrapContentWidth()  // Wrap the width around the content
+                                    .wrapContentHeight(),
+                                colors = ButtonDefaults.buttonColors(
+                                    Color(
+                                        android.graphics.Color.parseColor(
+                                            "#FFFCF5"
+                                        )
                                     )
+                                ), // Replace with your hex color
+                            ) {
+                                Text(
+                                    text = "+",
+                                    color = Color(android.graphics.Color.parseColor("#77AED4")) // Change the text color here
                                 )
-                            ), // Replace with your hex color
-                        ) {
-                            Text(
-                                text = "+",
-                                color = Color(android.graphics.Color.parseColor("#77AED4")) // Change the text color here
-                            )
+                            }
+
                         }
 
                     }
+                    Box(
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.yogaplanetsplit),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(950.dp)
+                                .paddingFromBaseline(bottom = 0.dp), // Adjust the top padding for a lower position
+                        )
+                    }
+                }
 
-                }
-                Box(
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.yogasplitplanet),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .size(950.dp)
-                            .paddingFromBaseline(bottom =0.dp), // Adjust the top padding for a lower position
-                    )
-                }
-            }
         }
     }
 
@@ -284,12 +291,18 @@ class YogaPlanet : ComponentActivity(){
                         }
 
                     }
-                    Image(
-                        painter = painterResource(id = R.drawable.yogaplanet),
-                        contentDescription = null,
-                        modifier = Modifier.size(500.dp),
 
-                        )
+                }
+                Box(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.yogaplanetsplit),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(950.dp)
+                            .paddingFromBaseline(bottom =0.dp), // Adjust the top padding for a lower position
+                    )
                 }
             }
         }
