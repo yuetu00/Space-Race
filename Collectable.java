@@ -5,9 +5,8 @@ public class Collectable{
     String name;
     //To identify exact collectable
     int ID = 0; 
-}
 
-public collectable(int category, int planet){
+public createCollectable(int planet, int category){
     //Initialize Creatures with species type and planet (int codes)
         //Category 1 - animals
         //Category 2 - objects
@@ -54,3 +53,4 @@ public collectable(int category, int planet){
             break;
         }  
     }
+}
